@@ -1,0 +1,72 @@
+%% ドキュメントクラスのロード jarticle クラス
+%% onecolumn : 一段組み
+%% a4j : A4サイズ，和文
+%% fleqn : 数式は左揃え
+\documentclass[10.5pt,twocolumn,a4j,fleqn]{ujarticle}
+
+%% 使用パッケージの指定
+%% graphicx : 図の使用
+%% fancyhdr : ヘッダ設定
+%% lastpage : ページ番号出力マクロ
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{listings, jlisting}
+
+\lstset{
+  numbers=left,
+  numbersep=-10pt,
+  columns=l
+}
+
+%% 独自マクロ タイトルスタイルの変更
+\makeatletter
+\let\@oldmaketitle=\@maketitle
+\def\@maketitle{
+  \vskip -3zh
+  \@oldmaketitle
+  %\vspace*{-0.8cm}
+}
+\makeatother
+
+%% ページのレイアウト指定
+\setlength{\textheight}{242mm}
+\setlength{\mathindent}{1zw}
+\setlength{\headheight}{15.0pt}
+\setlength{\voffset}{-1cm}
+
+%% ヘッダスタイルの適用
+\pagestyle{fancy}
+\lhead{ 輪講 \today{}}
+\chead{}
+\rhead{}
+\lfoot{}
+\cfoot{\thepage}
+\rfoot{}
+\renewcommand\headrulewidth{0.4pt}
+\renewcommand\footrulewidth{0pt}
+
+
+\title{
+  {\Large{\bf タイトル }}
+}
+\author{\bf{XXXX XXX}\\
+}
+\date{}
+
+%%----- ここから論文本体 ---------------------------------------
+\begin{document}
+\maketitle
+
+\section{hoge}\label{sec1}
+\section{hogeee}\label{sec2}
+
+%% 参考文献
+\bibliographystyle{sieicej}
+\bibliography{mainbib}%bibTexのファイル名
+\begin{thebibliography}{99}
+%\bibitem{bib:Latex2E}
+%奥村晴彦，改定第4版 LATEX2$\varepsilon$ 美文書作成入門，\\須藤真己(編)，pp.1-184，(社)技術評論社，東京，2007.
+\end{thebibliography}
+
+\end{document}
