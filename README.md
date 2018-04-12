@@ -18,4 +18,4 @@ TexLive2016 or latest version, or other relavant environment for LaTex
 1. Execute ```$> latexmk -pv main.tex``` in a terminal or use perticular tool to make document from IDE 
 
 ## Licence
-This software is released under the MIT License - see the LICENSE.com
+This software is released under the MIT License - see the LICENSE
