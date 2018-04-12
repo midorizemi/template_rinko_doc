@@ -8,6 +8,7 @@ $dvipdf = 'dvipdfmx %O -o %D %S';
 $dvips = 'dvips %O -z -f %S | convbkmk -u > %D';
 $ps2pdf = 'ps2pdf %O %S %D';
 $pdf_mode = 3;
+$max_repeat = 6;
 if ($^O eq 'darwin') {
   $pvc_view_file_via_temporary = 0;
   $pdf_previewer = 'open -ga /Applications/Skim.app';

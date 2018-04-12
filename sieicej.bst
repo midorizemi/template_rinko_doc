@@ -12,15 +12,15 @@
 % The file jbtxbst.doc has the documentation for this style.
 %
 % Please notify (matuzaki@sanbi.co.jp, hsato@sanbi.co.jp) of any bugs in this file.
-% ¼èC“ñ ²“¡GK  O”üˆóüŠ”®‰ïĞ
+% æ¾å´ä¿®äºŒ ä½è—¤ç§€å¹¸  ä¸‰ç¾å°åˆ·æ ªå¼ä¼šç¤¾
 %
-%%% XVî•ñ
+%%% æ›´æ–°æƒ…å ±
 %%% 2009/12/24 v1.1
-%%% Ebook‚ÆinbookCincollectionCinproceedings‚Ìaddress‚Æpublisher‚Ì‡”Ô‚ğ•ÏX
-%%% Ebook‚Åauthor‚Æeditor‚ğ—¼•ûoŒ»‚³‚¹‚é‚æ‚¤‚É•ÏX
-%%% Ebook‚Ìtitle‚ğ•ÏŠ·‚¹‚¸‚É‚»‚Ì‚Ü‚ÜoŒ»‚³‚¹‚é‚æ‚¤‚É•ÏX
-%%%   ¡‚Ü‚Å‚Íæ“ª‚Ì’PŒê‚ÆƒRƒƒ“‚ÌŒã‚Ì’PŒê‚Ì‚İ“ª•¶š‘å•¶š‚Æ‚µ‚»‚êˆÈŠO‚Í¬•¶š‚Æ‚µ‚Ä‚¢‚½
-%%% EbookCinbookCproceedings‚Ìeditor•\‹L‚Åed.‚Ì‘O‚É,‚ğ“ü‚ê‚é‚æ‚¤‚É•ÏX
+%%% ãƒ»bookã¨inbookï¼Œincollectionï¼Œinproceedingsã®addressã¨publisherã®é †ç•ªã‚’å¤‰æ›´
+%%% ãƒ»bookã§authorã¨editorã‚’ä¸¡æ–¹å‡ºç¾ã•ã›ã‚‹ã‚ˆã†ã«å¤‰æ›´
+%%% ãƒ»bookã®titleã‚’å¤‰æ›ã›ãšã«ãã®ã¾ã¾å‡ºç¾ã•ã›ã‚‹ã‚ˆã†ã«å¤‰æ›´
+%%%   ä»Šã¾ã§ã¯å…ˆé ­ã®å˜èªã¨ã‚³ãƒ­ãƒ³ã®å¾Œã®å˜èªã®ã¿é ­æ–‡å­—å¤§æ–‡å­—ã¨ã—ãã‚Œä»¥å¤–ã¯å°æ–‡å­—ã¨ã—ã¦ã„ãŸ
+%%% ãƒ»bookï¼Œinbookï¼Œproceedingsã®editorè¡¨è¨˜ã§ed.ã®å‰ã«,ã‚’å…¥ã‚Œã‚‹ã‚ˆã†ã«å¤‰æ›´
 
 ENTRY
   { address
@@ -101,7 +101,7 @@ FUNCTION {add.kanji.period}
 {
   add.period$ duplicate$
   #-1 #1 substring$ "." =
-    { #-2 global.max$ substring$ "D" * }
+    { #-2 global.max$ substring$ "ï¼" * }
     'skip$
   if$
 }
@@ -126,13 +126,13 @@ FUNCTION {output.nonnull}
           title empty$
             {
               is.kanji.entry
-                { "C" * write$ newline$ }
+                { "ï¼Œ" * write$ newline$ }
                 { ", " * write$ newline$ }
               if$
             }
             {
               title is.kanji.str$
-                { "C" * write$ newline$ }
+                { "ï¼Œ" * write$ newline$ }
                 { ", " * write$ newline$ }
               if$
             }
@@ -184,7 +184,7 @@ FUNCTION {output.nonnull}
                       author field.or.null is.kanji.str$
                       editor field.or.null is.kanji.str$ or
                       organization field.or.null is.kanji.str$ or
-                        { "C" * write$ newline$ }
+                        { "ï¼Œ" * write$ newline$ }
                         { ", " * write$ newline$ }
                       if$
                     }
@@ -225,7 +225,7 @@ FUNCTION {output.check}
       t "title" =
         {
           is.kanji.entry
-            {"C``\textbullet\textbulletC\<'' " *}
+            {"ï¼Œ``\textbullet\textbulletï¼Œ\<'' " *}
             {", ``\textbullet\textbullet,'' " *}
           if$
           #1 'comma.before.date :=
@@ -239,7 +239,7 @@ FUNCTION {output.check}
                 }
                 {
                   title is.kanji.str$
-                    {"\textbullet\textbulletC" *}
+                    {"\textbullet\textbulletï¼Œ" *}
                     {"\textbullet\textbullet, " *}
                   if$
                 }
@@ -247,7 +247,7 @@ FUNCTION {output.check}
             }
             {
               title is.kanji.str$
-                {" \textbullet\textbulletC" *}
+                {" \textbullet\textbulletï¼Œ" *}
                 {" \textbullet\textbullet, " *}
               if$
             }
@@ -452,7 +452,7 @@ FUNCTION {format.names}
               
               zenkaku #0 =
                 {
-                  "‰¢•¶’˜Ò–¼‚É‘SŠp•¶š‚ªg‚í‚ê‚Ä‚¢‚Ü‚· in " cite$ * warning$
+                  "æ¬§æ–‡è‘—è€…åã«å…¨è§’æ–‡å­—ãŒä½¿ã‚ã‚Œã¦ã„ã¾ã™ in " cite$ * warning$
                   #1 'zenkaku :=
                 }
                 {}
@@ -549,7 +549,7 @@ FUNCTION {format.names}
         namesleft #1 >
           {
             is.kanji.entry
-              { "C" * t * }
+              { "ï¼Œ" * t * }
               { ", " * t * }
             if$
           }
@@ -557,13 +557,13 @@ FUNCTION {format.names}
             t " others" =
             {
               s is.kanji.str$
-                { "‘¼" * }
+                { "ä»–" * }
                 { ", et~al." * }
               if$
             }
             {
               s is.kanji.str$
-                { "C" * t * }
+                { "ï¼Œ" * t * }
                 {
                   numnames #2 =
                     { " and " * t * }
@@ -603,14 +603,14 @@ FUNCTION {format.editors}
       editor num.names$ #1 >
         {
           editor is.kanji.str$
-            { "i•Òj\<" * }
+            { "ï¼ˆç·¨ï¼‰\<" * }
 %%%            { " eds." * }
             { ", eds." * }%%%<<< v1.1
           if$
         }
         {
           editor is.kanji.str$
-            { "i•Òj\<" * }
+            { "ï¼ˆç·¨ï¼‰\<" * }
 %%%            { " ed." * }
             { ", ed." * }%%%<<< v1.1
           if$
@@ -630,13 +630,13 @@ FUNCTION {format.in.ed.editors}
       editor num.names$ #1 >
         {
           editor is.kanji.str$
-            {"i•Òj\<" *}
+            {"ï¼ˆç·¨ï¼‰\<" *}
             {"eds.\ by " swap$ * }
           if$
         }
         {
           editor is.kanji.str$
-            {"i•Òj\<" *}
+            {"ï¼ˆç·¨ï¼‰\<" *}
             {"ed.\ by " swap$ *}
           if$
           }
@@ -712,13 +712,13 @@ FUNCTION {format.title}
           title empty$
             {
               is.kanji.entry
-                {"C\<''" * }
+                {"ï¼Œ\<''" * }
                 {",''" * }
               if$
             }
             {
               title is.kanji.str$
-                {"C\<''" * }
+                {"ï¼Œ\<''" * }
                 {",''" * }
               if$
             }
@@ -794,13 +794,13 @@ FUNCTION {format.month}
         title empty$
           {
             is.kanji.entry
-              {"C"}
+              {"ï¼Œ"}
               {", "}
             if$
           }
           {
             title is.kanji.str$
-              {"C"}
+              {"ï¼Œ"}
               {", "}
             if$
           }
@@ -925,13 +925,13 @@ FUNCTION {format.date}
                   title empty$
                     {
                       is.kanji.entry
-                        {"C\textbullet\textbullet"}
+                        {"ï¼Œ\textbullet\textbullet"}
                         {", \textbullet\textbullet"}
                       if$
                     }
                     {
                       title is.kanji.str$
-                        {"C\textbullet\textbullet"}
+                        {"ï¼Œ\textbullet\textbullet"}
                         {", \textbullet\textbullet"}
                       if$
                     }
@@ -955,13 +955,13 @@ FUNCTION {format.date}
               title empty$
                 {
                   is.kanji.entry
-                    {"C" year * }
+                    {"ï¼Œ" year * }
                     {", " year * }
                   if$
                 }
                 {
                   title is.kanji.str$
-                    {"C" year * }
+                    {"ï¼Œ" year * }
                     {", " year * }
                   if$
                 }
@@ -987,13 +987,13 @@ FUNCTION {format.btitle}
   title empty$
     {
       is.kanji.entry
-        { "C\<''" * }
+        { "ï¼Œ\<''" * }
         { ",''" * }
       if$
     }
     {
       title is.kanji.str$
-        { "C\<''" * }
+        { "ï¼Œ\<''" * }
         { ",''" * }
       if$
     }
@@ -1013,13 +1013,13 @@ FUNCTION {format.book.title}
       title empty$
         {
           is.kanji.entry
-            { "C" * }
+            { "ï¼Œ" * }
             { ", " * }
           if$
         }
         {
           title is.kanji.str$
-            { "C" * }
+            { "ï¼Œ" * }
             { ", " * }
           if$
         }
@@ -1057,7 +1057,7 @@ FUNCTION {format.bvolume}
         { volume }
         {
           is.kanji.entry
-            { "‘æ" volume * "Šª" * }
+            { "ç¬¬" volume * "å·»" * }
             { "vol." volume * }
           if$
         }
@@ -1102,7 +1102,7 @@ FUNCTION {format.edition}
         { edition }
         {
           is.kanji.entry
-            { "‘æ" edition * "”Å" *}
+            { "ç¬¬" edition * "ç‰ˆ" *}
             {
               output.state mid.sentence =
                 { edition "l" change.case$ " edition" * }
@@ -1181,7 +1181,7 @@ FUNCTION {format.vol.num.pages}
             }
             {
               is.kanji.entry
-                { "C" * }
+                { "ï¼Œ" * }
                 { ", " * }
               if$
             }
@@ -1191,13 +1191,13 @@ FUNCTION {format.vol.num.pages}
           title empty$
             {
               is.kanji.entry
-                { "C" * }
+                { "ï¼Œ" * }
                 { ", " * }
               if$
             }
             {
               title is.kanji.str$
-                { "C" * }
+                { "ï¼Œ" * }
                 { ", " * }
               if$
             }
@@ -1237,7 +1237,7 @@ FUNCTION {format.vol.num.pages}
         }
         {
           is.kanji.entry
-            { "C" * }
+            { "ï¼Œ" * }
             { ", " * }
           if$
           "pp.\textbullet\textbullet--\textbullet\textbullet" *
@@ -1254,13 +1254,13 @@ FUNCTION {format.vol.num.pages}
               title empty$
                 {
                   is.kanji.entry
-                    { "C" * format.pages * }
+                    { "ï¼Œ" * format.pages * }
                     { ", " * format.pages * }
                   if$
                 }
                 {
                   title is.kanji.str$
-                    { "C" * format.pages * }
+                    { "ï¼Œ" * format.pages * }
                     { ", " * format.pages * }
                   if$
                 }
@@ -1285,7 +1285,7 @@ FUNCTION {format.chapter.pages}
             { "" }
             {
               is.kanji.entry
-                { "Í" }
+                { "ç« " }
                 { "chapter" }
               if$
             }
@@ -1294,7 +1294,7 @@ FUNCTION {format.chapter.pages}
         { type "l" change.case$ }
       if$
       chapter is.kanji.str$ not is.kanji.entry and
-        { "‘æ" chapter * swap$ * }
+        { "ç¬¬" chapter * swap$ * }
         {
           chapter is.kanji.str$
             { chapter * }
@@ -1308,13 +1308,13 @@ FUNCTION {format.chapter.pages}
           title empty$
             {
               is.kanji.entry
-                { "C" * format.pages * }
+                { "ï¼Œ" * format.pages * }
                 { ", " * format.pages * }
               if$
             }
             {
               is.kanji.entry
-                { "C" * format.pages * }
+                { "ï¼Œ" * format.pages * }
                 { ", " * format.pages * }
               if$
             }
@@ -1337,13 +1337,13 @@ FUNCTION {format.in.ed.booktitle}
           title empty$
             {
               is.kanji.entry
-                { "C" * format.in.ed.editors * }
+                { "ï¼Œ" * format.in.ed.editors * }
                 { ", " * format.in.ed.editors * }
               if$
             }
             {
               title is.kanji.str$
-                { "C" * format.in.ed.editors * }
+                { "ï¼Œ" * format.in.ed.editors * }
                 { ", " * format.in.ed.editors * }
               if$
             }
@@ -1433,7 +1433,7 @@ FUNCTION {format.crossref.editor}
   editor num.names$ duplicate$ #2 >
     {
       editor is.kanji.str$
-        { pop$ "‘¼" * }
+        { pop$ "ä»–" * }
         { pop$ ", et~al." * }
       if$
     }
@@ -1444,7 +1444,7 @@ FUNCTION {format.crossref.editor}
           editor #2 "{f. }{vv }{ll}{, jj}" format.name$ "others" =
           {
             editor is.kanji.str$
-              { "‘¼" * }
+              { "ä»–" * }
               { ", et~al." * }
             if$
           }
@@ -1484,7 +1484,7 @@ FUNCTION {format.book.crossref}
         { volume }
         {
           is.kanji.entry
-            { "‘æ" volume * "Šª" * }
+            { "ç¬¬" volume * "å·»" * }
             { "vol." volume tie.or.space.connect " of " * }
           if$
         }
@@ -2006,8 +2006,8 @@ MACRO {toms} {"ACM Trans. Math. Softw."}
 MACRO {toois} {"ACM Trans. Office Inf. Syst."}
 MACRO {toplas} {"ACM Trans. Prog. Lang. Syst."}
 MACRO {tcs} {"Theoretical Comput. Sci."}
-MACRO {tieice} {"MŠw˜_"}
-MACRO {tipsj} {"î•ñˆ—Šw‰ï˜_•¶"}
+MACRO {tieice} {"ä¿¡å­¦è«–"}
+MACRO {tipsj} {"æƒ…å ±å‡¦ç†å­¦ä¼šè«–æ–‡èªŒ"}
 MACRO {jipsj} {"J.~Info. Proc. Soc. of Japan"}
 MACRO {jorsj} {"Journal of the O. R. Society of Japan"}
 
