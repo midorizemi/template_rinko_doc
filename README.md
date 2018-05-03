@@ -15,7 +15,7 @@ TexLive2016 or latest version, or other relavant environment for LaTex
 1. Install TexLive or relavant environment
 1. Pull this repository
 1. Edit main.tex your documentation with a editor or IDE you like
-1. Add name.tex with your name; ```$> echo your name > name.tex, or replace \author{\input{name.tex}} to \author{your name}.
+1. Add name.tex with your name; ```$> echo your name > name.tex```, or replace \author{\input{name.tex}} to \author{your name}.
 1. Execute ```$> latexmk -pv main.tex``` in a terminal or use perticular tool to make document from IDE 
 
 ## Licence
